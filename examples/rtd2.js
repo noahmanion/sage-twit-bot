@@ -24,9 +24,9 @@ setInterval(function() {
   });
   var rand = Math.random();
 
-  if(rand <= 0.05) {      //  searchfollow for "daniel pouzet"
+  if(rand <= 0.05) {      //  searchfollow for "nature and design"
     var params = {
-        q: "Daniel Pouzet"
+        q: '"nature and design"'
       , since: datestring()
       , result_type: "mixed"
     };
@@ -37,9 +37,9 @@ setInterval(function() {
       var name = reply.screen_name;
       console.log("\nSearchFollow: followed @" + name);
     });
-  } else if(rand <= 0.10) { // favorite "daniel pouzet"
+  } else if(rand <= 0.10) { // favorite "nature and design"
      var params = {
-        q: "Daniel Pouzet"
+        q: '"nature and design"'
       , since: datestring()
       , result_type: "mixed"
     };
@@ -52,7 +52,7 @@ setInterval(function() {
     });
   } else if(rand <= 0.15) {// favorite "nature inspired design"
      var params = {
-        q: "nature inspired design"
+        q: '"nature inspired design"'
       , since: datestring()
       , result_type: "mixed"
     };
@@ -65,7 +65,7 @@ setInterval(function() {
     });
   } else if(rand <= 0.20) {//  searchfollow for "nature inspired design"
     var params = {
-        q: "nature inspired design"
+        q: '"nature inspired design"'
       , since: datestring()
       , result_type: "mixed"
     };
@@ -116,7 +116,7 @@ setInterval(function() {
   } else if(rand <= 0.40) {
     // favorite "organic architecture"
      var params = {
-        q: "organic architecture"
+        q: '"living architecture"'
       , since: datestring()
       , result_type: "mixed"
     };
@@ -130,7 +130,7 @@ setInterval(function() {
   } else if(rand <= 0.45) { 
  //  searchfollow for "organic architecture"
     var params = {
-        q: "organic architecture"
+        q: '"living architecture"'
       , since: datestring()
       , result_type: "mixed"
     };
@@ -143,9 +143,9 @@ setInterval(function() {
       console.log("\nSearchFollow: followed @" + name);
     });
  
-  } else if(rand <= 0.50) {   // favroite "organic design"   
+  } else if(rand <= 0.50) {   // favroite "dedon"   
     var params = { 
-        q: "organic design"
+        q: "dedon"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -156,9 +156,9 @@ setInterval(function() {
  
       console.log("\nFavorite: favorited response: " + reply.id + reply.text);
     });
-  } else if(rand <= 0.55) {  //  searchfollow for "organic design"
+  } else if(rand <= 0.55) {  //  searchfollow for "dedon"
     var params = {
-        q: "organic design"
+        q: "dedon"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -170,7 +170,7 @@ setInterval(function() {
       var name = reply.screen_name;
       console.log("\nSearchFollow: followed @" + name);
     });
-  } else if(rand <= 0.60) { //  searchfollow for "indoor garden"
+  } else if(rand <= 0.60) { //  searchfollow for "indoor gardening"
     var params = {
         q: "indoor gardening"
       , since: datestring()
@@ -230,8 +230,7 @@ setInterval(function() {
       var name = reply.screen_name;
       console.log("\nSearchFollow: followed @" + name);
     });
-
-    } else if(rand <= 0.85) {    
+    
   } else {                  //  prune a friend
     bot.prune(function(err, reply) {
       if(err) return handleError(err);
@@ -240,7 +239,7 @@ setInterval(function() {
       console.log('\nPrune: unfollowed @'+ name);
     });
   }
-}, 120000);
+}, 90000);
 
 function handleError(err) {
   console.error('response status:', err.statusCode);

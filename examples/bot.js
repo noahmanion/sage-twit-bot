@@ -26,7 +26,7 @@ Bot.prototype.tweet = function (status, callback) {
 Bot.prototype.mingle = function (callback) {
   var self = this;
   
-  this.twit.get('followers/ids', function(err, reply) {
+  this.twit.get('followers/ids', function(err,   eply) {
       if(err) { return callback(err); }
       
       var followers = reply.ids
