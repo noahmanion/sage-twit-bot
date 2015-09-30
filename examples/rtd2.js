@@ -3,7 +3,7 @@
 //  Also makes new friends and prunes its followings.
 //
 var Bot = require('./bot')
-  , config1 = require('../config1');
+  , config1 = require('../config1.js');
 
 var bot = new Bot(config1);
 
