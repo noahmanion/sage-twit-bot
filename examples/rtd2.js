@@ -22,8 +22,20 @@ setInterval(function() {
     if(err) return handleError(err)
     console.log('\n# followers:' + reply.ids.length.toString());
   });
-  var rand = Math.random();
-
+  var rand = Math.random(0,1);
+ /**  WHOA, WE CAN FOLLOW PEOPLE BASED ON WHO THEY FOLLOW
+  if(rand <= 1) {
+    var params = {
+      screen_name: "dwell"
+    };
+    bot.mingleUser(params, function(err, reply) {
+      if(err) return handleError(err);
+ 
+      var name = reply.screen_name;
+      console.log("\nMingle: followed @" + name + ", follower of @" + params.screen_name);
+    });
+}
+**/
   if(rand <= 0.05) {      //  searchfollow for "nature and design"
     var params = {
         q: "nature & design"

@@ -42,6 +42,21 @@ Bot.prototype.mingle = function (callback) {
         })
     })
 };
+//
+// Follow a random follower of a specific user - targeted mingle
+//
+Bot.prototype.mingleUser = function (params, callback) {
+  var self = this;
+  
+  this.twit.get('followers/ids', params, function(err, reply) {
+      if(err) { return callback(err); }
+      
+      var followers = reply.ids
+      , target = randIndex(followers);
+
+      self.twit.post('friendships/create' , {id: target}, callback);
+    })
+};
 
 //
 //  prune your followers list; unfollow a friend that hasn't followed you back
@@ -49,7 +64,7 @@ Bot.prototype.mingle = function (callback) {
 Bot.prototype.prune = function (callback) {
   var self = this;
   
-  this.twit.get('followers/ids', function(err, reply) {
+  this.twit.get('followers/ids', function (err, reply) {
       if(err) return callback(err);
       
       var followers = reply.ids;
@@ -80,7 +95,7 @@ Bot.prototype.searchFollow = function (params, callback) {
   self.twit.get('search/tweets', params, function (err, reply) {
     if(err) return callback(err);
  
-    console.log("searchFollow: " + params.q);
+    console.log("searchFollow:" + params.q);
     var tweets = reply.statuses;
     var target = randIndex(tweets).user.id_str;
  
