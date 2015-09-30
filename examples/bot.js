@@ -26,7 +26,7 @@ Bot.prototype.tweet = function (status, callback) {
 Bot.prototype.mingle = function (callback) {
   var self = this;
   
-  this.twit.get('followers/ids', function(err,   eply) {
+  this.twit.get('followers/ids', function(err, reply) {
       if(err) { return callback(err); }
       
       var followers = reply.ids
@@ -78,15 +78,16 @@ Bot.prototype.searchFollow = function (params, callback) {
   var self = this;
  
   self.twit.get('search/tweets', params, function (err, reply) {
-        if(err) return callback(err);
-
-    //console.log("searchFollow" + params);
+    if(err) return callback(err);
+ 
+    console.log("searchFollow: " + params.q);
     var tweets = reply.statuses;
     var target = randIndex(tweets).user.id_str;
  
     self.twit.post('friendships/create', { id: target }, callback);
   });
 };
+
 //
 // retweet
 //
@@ -96,7 +97,7 @@ Bot.prototype.retweet = function (params, callback) {
   self.twit.get('search/tweets', params, function (err, reply) {
     if(err) return callback(err);
     
-    //console.log("retweet" + params);
+    console.log("retweet: " + params.q);
     var tweets = reply.statuses;
     var randomTweet = randIndex(tweets);
  
@@ -113,7 +114,7 @@ Bot.prototype.favorite = function (params, callback) {
   self.twit.get('search/tweets', params, function (err, reply) {
     if(err) return callback(err);
     
-    //console.log("favorite" + params)
+    console.log("favorite: " + params.q);
     var tweets = reply.statuses;
     var randomTweet = randIndex(tweets);
  

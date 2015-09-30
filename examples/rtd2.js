@@ -26,11 +26,10 @@ setInterval(function() {
 
   if(rand <= 0.05) {      //  searchfollow for "nature and design"
     var params = {
-        q: '"nature and design"'
+        q: "nature & design"
       , since: datestring()
       , result_type: "mixed"
     };
-    console.log(params)
     bot.searchFollow(params, function(err, reply) {
       if(err) return handleError(err);
  
@@ -39,38 +38,32 @@ setInterval(function() {
     });
   } else if(rand <= 0.10) { // favorite "nature and design"
      var params = {
-        q: '"nature and design"'
+        q: "nature & design"
       , since: datestring()
-      , result_type: "mixed"
+      , result_type: 'mixed'
     };
- 
-    console.log(params)
     bot.favorite(params, function(err, reply) {
       if(err) return handleError(err);
  
-      console.log("\nFavorite: favorited response: " + reply.id + reply.text);
+      console.log("\nFavorite: favorited response: " + reply.id + " '" + reply.text + "'");
     });
   } else if(rand <= 0.15) {// favorite "nature inspired design"
      var params = {
-        q: '"nature inspired design"'
+        q: "nature inspired design"
       , since: datestring()
       , result_type: "mixed"
     };
- 
-    console.log(params)
     bot.favorite(params, function(err, reply) {
       if(err) return handleError(err);
  
-      console.log("\nFavorite: favorited response: " + reply.id + reply.text);
+      console.log("\nFavorite: favorited response: " + reply.id + " '" + reply.text + "'");
     });
   } else if(rand <= 0.20) {//  searchfollow for "nature inspired design"
     var params = {
-        q: '"nature inspired design"'
+        q: "nature inspired design"
       , since: datestring()
       , result_type: "mixed"
     };
- 
-    console.log(params)
     bot.searchFollow(params, function(err, reply) {
       if(err) return handleError(err);
  
@@ -84,58 +77,56 @@ setInterval(function() {
       , since: datestring()
       , result_type: "mixed"
     };
- 
-    console.log(params)
     bot.searchFollow(params, function(err, reply) {
       if(err) return handleError(err);
  
       var name = reply.screen_name;
       console.log("\nSearchFollow: followed @" + name);
     });
-  } else if(rand <= 0.30) {// favorite "interior design ninspiration"
+  } else if(rand <= 0.30) {// favorite "interior design inspiration"
      var params = {
         q: "interior design inspiration"
       , since: datestring()
       , result_type: "mixed"
     };
- 
-    console.log(params)
     bot.favorite(params, function(err, reply) {
       if(err) return handleError(err);
  
-      console.log("\nFavorite: favorited response: " + reply.id + reply.text);
+      console.log("\nFavorite: favorited response: " + reply.id + " '" + reply.text + "'");
     });
 
-  } else if(rand <= 0.35) {
+  } 
+
+  else if(rand <= 0.35) {
     bot.mingle(function(err, reply) {
       if(err) return handleError(err);
  
       var name = reply.screen_name;
       console.log("\nMingle: followed @" + name);
     });
-  } else if(rand <= 0.40) {
-    // favorite "organic architecture"
+  }
+
+  else if(rand <= 0.40) {
+    // favorite "living architecture"
      var params = {
-        q: '"living architecture"'
+        q: "modern design inspiration"
       , since: datestring()
       , result_type: "mixed"
     };
- 
-    console.log(params)
     bot.favorite(params, function(err, reply) {
       if(err) return handleError(err);
  
-      console.log("\nFavorite: favorited response: " + reply.id + reply.text);
+      console.log("\nFavorite: favorited response: " + reply.id + " '" + reply.text + "'");
     });
-  } else if(rand <= 0.45) { 
- //  searchfollow for "organic architecture"
+  } 
+
+  else if(rand <= 0.45) { 
+ //  searchfollow for "living architecture"
     var params = {
-        q: '"living architecture"'
+        q: "modern design inspiration"
       , since: datestring()
       , result_type: "mixed"
     };
- 
-    console.log(params)
     bot.searchFollow(params, function(err, reply) {
       if(err) return handleError(err);
  
@@ -145,25 +136,21 @@ setInterval(function() {
  
   } else if(rand <= 0.50) {   // favroite "dedon"   
     var params = { 
-        q: "dedon"
+        q: "modern interior design"
       , since: datestring()
       , result_type: "mixed"
     };
- 
-    console.log(params)
     bot.favorite(params, function(err, reply) {
       if(err) return handleError(err);
  
-      console.log("\nFavorite: favorited response: " + reply.id + reply.text);
+      console.log("\nFavorite: favorited response: " + reply.id + " '" + reply.text + "'");
     });
   } else if(rand <= 0.55) {  //  searchfollow for "dedon"
     var params = {
-        q: "dedon"
+        q: "modern interior design"
       , since: datestring()
       , result_type: "mixed"
     };
- 
-    console.log(params)
     bot.searchFollow(params, function(err, reply) {
       if(err) return handleError(err);
  
@@ -177,34 +164,36 @@ setInterval(function() {
       , result_type: "mixed"
     };
  
-    console.log(params)
+    console.log("searchfollow: " + params)
     bot.searchFollow(params, function(err, reply) {
       if(err) return handleError(err);
  
       var name = reply.screen_name;
       console.log("\nSearchFollow: followed @" + name);
     });
-  } else if(rand <= 0.65) { 
+  } 
+  else if(rand <= 0.65) { 
     bot.mingle(function(err, reply) {
       if(err) return handleError(err);
  
       var name = reply.screen_name;
       console.log("\nMingle: followed @" + name);
     });
-  } else if(rand <= 0.70) {   // favroite "indoor garden"   
+}
+ else if(rand <= 0.70) {   // favroite "indoor garden"   
     var params = { 
         q: "indoor gardening"
       , since: datestring()
       , result_type: "mixed"
     };
- 
-    console.log(params)
     bot.favorite(params, function(err, reply) {
       if(err) return handleError(err);
  
-      console.log("\nFavorite: favorited response: " + reply.id + reply.text);
+      console.log("\nFavorite: favorited response: " + reply.id + " '" + reply.text + "'"
+        );
     });
-    } else if(rand <= 0.75) {   // favroite "interior design"   
+    } 
+    else if(rand <= 0.75) {   // favroite "interior design"   
     var params = { 
         q: "interior design"
       , since: datestring()
@@ -222,8 +211,6 @@ setInterval(function() {
       , since: datestring()
       , result_type: "mixed"
     };
- 
-    console.log(params)
     bot.searchFollow(params, function(err, reply) {
       if(err) return handleError(err);
  
@@ -243,5 +230,6 @@ setInterval(function() {
 
 function handleError(err) {
   console.error('response status:', err.statusCode);
-  console.error('data:', err.data);
+  console.error('data:', err.message)
+  console.error('code: ', err.code);
 }

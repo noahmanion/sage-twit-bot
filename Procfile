@@ -1,1 +1,1 @@
-web: node examples/rtd2.js
+worker: node examples/rtd2.js
