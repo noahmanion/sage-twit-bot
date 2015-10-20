@@ -26,7 +26,7 @@ setInterval(function() {
 
   if(rand <= 0.05) {      //  searchfollow for "nature and design"
     var params = {
-        q: '"nature and design"'
+        q: "nature and design"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -39,7 +39,7 @@ setInterval(function() {
     });
   } else if(rand <= 0.10) { // favorite "nature and design"
      var params = {
-        q: '"nature and design"'
+        q: "nature and design"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -52,7 +52,7 @@ setInterval(function() {
     });
   } else if(rand <= 0.15) {// favorite "nature inspired design"
      var params = {
-        q: '"nature inspired design"'
+        q: "nature inspired design"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -65,7 +65,7 @@ setInterval(function() {
     });
   } else if(rand <= 0.20) {//  searchfollow for "nature inspired design"
     var params = {
-        q: '"nature inspired design"'
+        q: "nature inspired design"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -116,7 +116,7 @@ setInterval(function() {
   } else if(rand <= 0.40) {
     // favorite "organic architecture"
      var params = {
-        q: '"living architecture"'
+        q: "living architecture"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -130,7 +130,7 @@ setInterval(function() {
   } else if(rand <= 0.45) { 
  //  searchfollow for "organic architecture"
     var params = {
-        q: '"living architecture"'
+        q: "living architecture"
       , since: datestring()
       , result_type: "mixed"
     };
