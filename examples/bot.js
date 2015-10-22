@@ -25,22 +25,38 @@ Bot.prototype.tweet = function (status, callback) {
 //
 Bot.prototype.mingle = function (callback) {
   var self = this;
-  
-  this.twit.get('followers/ids', function(err,   eply) {
+ 
+  this.twit.get('followers/ids', function(err, reply) {
+    if(err) { return callback(err); }
+ 
+    var followers = reply.ids
+    , randFollower = randIndex(followers);
+ 
+    self.twit.get('friends/ids', { user_id: randFollower }, function(err, reply) {
       if(err) { return callback(err); }
-      
-      var followers = reply.ids
-        , randFollower  = randIndex(followers);
-        
-      self.twit.get('friends/ids', { user_id: randFollower }, function(err, reply) {
-          if(err) { return callback(err); }
-          
-          var friends = reply.ids
-            , target  = randIndex(friends);
-            
-          self.twit.post('friendships/create', { id: target }, callback); 
-        })
+ 
+      var friends = reply.ids
+      , target = randIndex(friends);
+ 
+      self.twit.post('friendships/create', { id: target }, callback);
     })
+  })
+};
+//
+// Mingle followers of a targeted account
+//
+Bot.prototype.mingleUser = function (callback, params) {
+	var self = this;
+
+  this.twit.get('followers/ids', function(err, reply) {
+    if(err) { return callback(err); }
+
+		console.log("Looking for a follower of " + params.screen_name)
+		var followers = reply.ids
+      , target = randIndex(followers);
+
+		self.twit.post('friendships/create', {id: target}, callback);
+	})
 };
 
 //
@@ -80,7 +96,7 @@ Bot.prototype.searchFollow = function (params, callback) {
   self.twit.get('search/tweets', params, function (err, reply) {
         if(err) return callback(err);
 
-    //console.log("searchFollow" + params);
+    console.log("searchFollow-ing: looking for a user that tweets about " + params.q);
     var tweets = reply.statuses;
     var target = randIndex(tweets).user.id_str;
  
@@ -113,7 +129,7 @@ Bot.prototype.favorite = function (params, callback) {
   self.twit.get('search/tweets', params, function (err, reply) {
     if(err) return callback(err);
     
-    //console.log("favorite" + params)
+    console.log("Looking for a tweet about " + params.q + " to Favorite")
     var tweets = reply.statuses;
     var randomTweet = randIndex(tweets);
  

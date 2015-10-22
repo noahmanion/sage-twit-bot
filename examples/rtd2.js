@@ -243,5 +243,5 @@ setInterval(function() {
 
 function handleError(err) {
   console.error('response status:', err.statusCode);
-  console.error('data:', err.data);
+  console.error('message:', err.message);
 }
