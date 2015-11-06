@@ -1,1 +1,1 @@
-web: node examples/rtd2.js
+web: node examples/sglbot.js

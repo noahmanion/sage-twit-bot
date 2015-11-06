@@ -7,7 +7,7 @@ var Bot = require('./bot')
 
 var bot = new Bot(config1);
 
-console.log('RTD2: Running.');
+console.log('SGL bot is now running...');
 
 //get date string for today's date (e.g. '2011-01-01')
 function datestring () {
@@ -26,7 +26,7 @@ setInterval(function() {
 
   if(rand <= 0.03) {      //  searchfollow for "nature and design"
     var params = {
-        q: "nature and design"
+        q: "urbanfarming"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -38,7 +38,7 @@ setInterval(function() {
     });
   } else if(rand <= 0.06) { // favorite "nature and design"
      var params = {
-        q: "nature and design"
+        q: "urbanfarming"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -76,7 +76,7 @@ setInterval(function() {
   } else if(rand <= 0.15) {
     //  searchfollow for "interior design inspiration"
     var params = {
-        q: "interior design inspiration"
+        q: "aerogarden"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -89,7 +89,7 @@ setInterval(function() {
     });
   } else if(rand <= 0.18) {// favorite "interior design ninspiration"
      var params = {
-        q: "interior design inspiration"
+        q: "aerogarden"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -110,7 +110,7 @@ setInterval(function() {
   } else if(rand <= 0.24) {
     // favorite "organic architecture"
      var params = {
-        q: "living architecture"
+        q: "homedesign"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -123,7 +123,7 @@ setInterval(function() {
   } else if(rand <= 0.27) { 
  //  searchfollow for "organic architecture"
     var params = {
-        q: "living architecture"
+        q: "homedesign"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -162,7 +162,7 @@ setInterval(function() {
     });
   } else if(rand <= 0.36) { //  searchfollow for "indoor gardening"
     var params = {
-        q: "indoor gardening"
+        q: "plantdesign"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -182,7 +182,7 @@ setInterval(function() {
     });
   } else if(rand <= 0.42) {   // favroite "indoor garden"   
     var params = { 
-        q: "indoor gardening"
+        q: "plantdesign"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -194,7 +194,7 @@ setInterval(function() {
     });
     } else if(rand <= 0.45) {   // favroite "interior design"   
     var params = { 
-        q: "interior design"
+        q: "plantlove"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -207,7 +207,7 @@ setInterval(function() {
     } 
     else if(rand <= 0.48) {   // favroite "interior design"   
     var params = { 
-        q: "buy houseplants"
+        q: "houseplants"
       , since: datestring()
       , result_type: "mixed"
     };
@@ -219,7 +219,7 @@ setInterval(function() {
     });
     } else if(rand <= 0.50) {  //  searchfollow for "interior design"
     var params = {
-        q: "interior design"
+        q: "plantlove"
       , since: datestring()
       , result_type: "mixed"
     };
