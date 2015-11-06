@@ -26,7 +26,7 @@ Bot.prototype.tweet = function (status, callback) {
 Bot.prototype.mingle = function (callback) {
   var self = this;
   
-  this.twit.get('followers/ids', function(err,   eply) {
+  this.twit.get('followers/ids', function(err, reply) {
       if(err) { return callback(err); }
       
       var followers = reply.ids
@@ -42,7 +42,28 @@ Bot.prototype.mingle = function (callback) {
         })
     })
 };
+//
+// Follow a random follower of a specific user - targeted mingle
+//
+Bot.prototype.mingleUser = function (params, callback) {
+  var self = this;
+  
+  this.twit.get('followers/ids', params, function(err, reply) {
+      if(err) { return callback(err); }
+      
+      console.log("Looking for a follower of @" + params.screen_name); 
+      var followers = reply.ids
+      , target = randIndex(followers);
 
+      self.twit.post('friendships/create', { id: target }, function(err, reply){
+      	if (err) { return callback(err); }
+
+      	console.log("\nMingle: Followed @" + reply.screen_name + ", follower of @" + params.screen_name);
+
+      });
+      //console.log("\nMingle: Followed @" + target + ", follower of @" + params.screen_name);
+    });
+};
 //
 //  prune your followers list; unfollow a friend that hasn't followed you back
 //
@@ -80,7 +101,7 @@ Bot.prototype.searchFollow = function (params, callback) {
   self.twit.get('search/tweets', params, function (err, reply) {
         if(err) return callback(err);
 
-    //console.log("searchFollow" + params);
+    console.log("Looking for someone to follow who tweets about: " + params.q)
     var tweets = reply.statuses;
     var target = randIndex(tweets).user.id_str;
  
@@ -96,11 +117,10 @@ Bot.prototype.retweet = function (params, callback) {
   self.twit.get('search/tweets', params, function (err, reply) {
     if(err) return callback(err);
     
-    //console.log("retweet" + params);
+    console.log("Looking for a tweet to retweet about: " + params.q)
     var tweets = reply.statuses;
     var randomTweet = randIndex(tweets);
  
-    self.twit.post('statuses/retweet/:id', { id: randomTweet.id_str }, callback);
   });
 };
  
@@ -113,7 +133,7 @@ Bot.prototype.favorite = function (params, callback) {
   self.twit.get('search/tweets', params, function (err, reply) {
     if(err) return callback(err);
     
-    //console.log("favorite" + params)
+    console.log("Looking for a response to favorite about" + params.q)
     var tweets = reply.statuses;
     var randomTweet = randIndex(tweets);
  
