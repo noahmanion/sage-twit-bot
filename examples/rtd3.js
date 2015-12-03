@@ -21,6 +21,7 @@ setInterval(function() {
   bot.twit.get('followers/ids', function(err, reply) {
     if(err) return handleError(err)
     console.log('\n# followers:' + reply.ids.length.toString());
+	//console.log(Date.now() - 10*60*60*1000);
   });
   var rand = Math.random(0,2);
 
