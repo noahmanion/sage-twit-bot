@@ -1,5 +1,5 @@
 //
-//
+// Prunebot. This prunes the people you've followed.
 //
 //
 var Bot = require('./bot')
@@ -17,12 +17,12 @@ var Bot = require('./bot')
  	  + d.getDate();
  };
 
- setInterval(funciton() {
+ setInterval(function() {
  	bot.twit.get('followers/ids', function(err, reply) {
  		if(err) return handleError(err)
  			console.log('\n# followers:' + reply.ids.length.toString());
  	});
- 	var rand Math.random(0,2);
+  var rand = Math.random(0,2);
 
  	if (rand <= 0.5) {
  		bot.prune(function(err, reply) {
@@ -30,6 +30,7 @@ var Bot = require('./bot')
 
  			var name = reply.screen_name
  			console.log('\nPrune: unfollowed @' + name);
+ 			console.log('------------');
  		});
  	} else {
  		bot.prune(function(err, reply) {
@@ -37,6 +38,7 @@ var Bot = require('./bot')
 
  			var name = reply.screen_name
  			console.log('\nPrune: unfollowed @' + name);
+ 			console.log('------------');
  		});
  	}
  }, 60000);
