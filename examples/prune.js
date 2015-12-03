@@ -41,7 +41,7 @@ var Bot = require('./bot')
  			console.log('------------');
  		});
  	}
- }, 60000);
+ }, 90000);
  function handleError(err) {
  	console.error('response status:', err.statusCode);
  	console.error('data: ', err.message);
