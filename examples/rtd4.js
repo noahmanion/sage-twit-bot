@@ -38,7 +38,7 @@ setInterval(function() {
     });
   } else if(rand <= 15) { // favorite for #OHC2015
     var params = {
-      q: "OHC2015"
+      q: "chicagobiennial"
       , since: datestring()
       , result_type: "mixed"
     };

@@ -149,9 +149,10 @@ setInterval(function() {
       console.log('\nPrune: unfollowed @'+ name);
     });
 	}
-}, getRandomArbitrary(90000,180000));
+}, getRandomArbitrary(120000,180000));
 
 function handleError(err) {
 	console.error('response status code:', err.satusCode);
 	console.error('message:', err.message);
+	console.error('code:', err.code);
 };
