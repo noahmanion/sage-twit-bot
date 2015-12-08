@@ -98,6 +98,7 @@ Bot.prototype.searchFollow = function (params, callback) {
  
     console.log("SearchFollow for the subject : " + params.q);
     var tweets = reply.statuses;
+    //console.log(tweets);
     var target = randIndex(tweets).user.id_str;
  
     self.twit.post('friendships/create', { id: target }, callback);

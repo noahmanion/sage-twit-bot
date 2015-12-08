@@ -25,9 +25,9 @@ setInterval(function() {
   var rand = Math.floor((Math.random() * 200) + 1);
   if(rand <= 5) { 
     
-  } else if(rand <= 10) { //searchfollow for #OHC2015
+  } else if(rand <= 10) { //searchfollow for #chicagobiennial
     var params = { 
-       q: "OHC2015"
+       q: "chicagobiennial"
       , since: datestring()
       , result_type: "mixed" 
     };
