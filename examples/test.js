@@ -26,12 +26,15 @@ function getRandomArbitrary(min, max) {
 setInterval(function() {
   bot.twit.get('followers/ids', function(err, reply) {
     if(err) return handleError(err)
+    var datenow = new Date(Date.now() - 10*60*60*1000);
     console.log('\n# followers:' + reply.ids.length.toString());
+    console.log('\n The date/time is: ' + datenow);
   });
 	var rand = Math.random();
 	//console.log(rand);
 	if(rand <= 1){//put your function to test between here
-		 var params = { 
+		 /****
+     var params = { 
        q: "\#chicagobiennial"
       , since: datestring()
       , result_type: "mixed" 
@@ -41,7 +44,12 @@ setInterval(function() {
       var name = reply.screen_name;
       console.log("\nSearchFollow: followed @" +name);
     });
-    };// and here
+    *****/ 
+
+    console.log("function operates now")
+    };
+    
+    // and here
 }, 10000);
 
 function handleError(err) {
